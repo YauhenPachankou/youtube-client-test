@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  min-height: 15vh;
+  padding-left: 30vw;
+  padding-right: 30vw;
+
+  background-color: cadetblue;
+}
+
+.header__navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 7vw;
+}
+
+mat-form-field {
+  color: #ffffff;
+}
+

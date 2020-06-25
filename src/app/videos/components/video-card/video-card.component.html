@@ -1,0 +1,40 @@
+<div class="card">
+  <img
+    class="card__preview"
+    [src]="video.snippet.thumbnails.standard.url"
+    alt="video preview"
+  >
+  <ul class="card__statistics">
+    <li class="card__statistics-item">
+      <img
+        src="../../../../assets/images/viewed.svg"
+        alt="views"
+      >
+      <span class="card__statistics-count">{{video.statistics.viewCount}}</span>
+    </li>
+    <li class="card__statistics-item">
+      <img
+        src="../../../../assets/images/liked.svg"
+        alt="likes"
+      >
+      <span class="card__statistics-count">{{video.statistics.likeCount}}</span>
+    </li>
+    <li class="card__statistics-item">
+      <img
+        src="../../../../assets/images/dislike.svg"
+        alt="dislikes"
+      >
+      <span class="card__statistics-count">{{video.statistics.dislikeCount}}</span>
+    </li>
+    <li class="card__statistics-item">
+      <img
+        class="statistics__icon"
+        src="../../../../assets/images/commented.svg"
+        alt="comments"
+      >
+      <span class="card__statistics-count">{{video.statistics.commentCount}}</span>
+    </li>
+  </ul>
+  <h2 class="card__title">{{video.snippet.title}}</h2>
+  <a (click)="switchVideoStatus()" class="card__btn" mat-raised-button>{{btnText}}</a>
+</div>

@@ -1,0 +1,8 @@
+<div class="grid">
+  <app-video-card
+    *ngFor="let video of videos$ | async"
+    [video]="video"
+    [btnText]="bntText"
+    (onSwitchVideoStatus)="addVideoToFavorites(video)"
+  ></app-video-card>
+</div>

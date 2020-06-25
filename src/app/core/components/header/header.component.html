@@ -1,0 +1,29 @@
+<header class="header">
+  <nav class="header__navigation">
+    <a
+      [routerLink]="['/home']"
+      class="navigation__link"
+      mat-icon-button color="primary"
+      aria-label="Example icon button with a home icon">
+      <mat-icon>home</mat-icon>
+    </a>
+    <a
+      [routerLink]="['/favorites']"
+      class="navigation__link"
+      mat-icon-button color="warn"
+      aria-label="Example icon button with a heart icon">
+      <mat-icon>favorite</mat-icon>
+    </a>
+  </nav>
+  <form [formGroup]="form">
+    <mat-form-field class="header__search">
+      <label>
+        <input
+          formControlName="filter"
+          type="text"
+          matInput placeholder="Search by video title">
+      </label>
+    </mat-form-field>
+  </form>
+  <button (click)="loadMore()" mat-raised-button color="accent">Load more</button>
+</header>
