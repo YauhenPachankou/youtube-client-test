@@ -1,10 +1,11 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
-import * as videosFeature from './videos.reducer';
-import { VideoInfo } from '../models/youtube-response.model';
+import * as videosFeature from 'src/app/videos/store/videos.reducer';
+import { VideoInfo } from 'src/app/videos/models/youtube-response.model';
+import { filterVideos } from 'src/app/videos/utils/filter-videos.util';
 
 export interface AppState {
-  videos: videosFeature.VideosState
+  videos: videosFeature.VideosState;
 }
 
 export const selectVideosFeature = createFeatureSelector<AppState, videosFeature.VideosState>(videosFeature.videosFeatureKey);
@@ -27,11 +28,9 @@ export const selectFilteringWord = createSelector(
 export const selectAllVideosByFilteringWord = createSelector(
   selectAllVideos,
   selectFilteringWord,
-  (allVideos: VideoInfo[], filteringWord: string) => allVideos.filter((video) => video.snippet.title.toLowerCase().includes(filteringWord.toLowerCase()))
-);
+  (allVideos: VideoInfo[], filteringWord: string) => allVideos.filter(filterVideos(filteringWord)));
 
 export const selectFavoriteVideosByFilteringWord = createSelector(
   selectFavoriteVideos,
   selectFilteringWord,
-  (favoriteVideos: VideoInfo[], filteringWord: string) => favoriteVideos.filter((video) => video.snippet.title.toLowerCase().includes(filteringWord.toLowerCase()))
-);
+  (favoriteVideos: VideoInfo[], filteringWord: string) => favoriteVideos.filter(filterVideos(filteringWord)));

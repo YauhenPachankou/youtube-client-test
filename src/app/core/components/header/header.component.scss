@@ -2,10 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
-  min-height: 15vh;
-  padding-left: 30vw;
-  padding-right: 30vw;
+  width: 100%;
+  min-height: 150px;
+  padding-left: 30%;
+  padding-right: 30%;
 
   background-color: cadetblue;
 }
@@ -13,7 +13,7 @@
 .header__navigation {
   display: flex;
   justify-content: space-between;
-  width: 7vw;
+  width: 100px;
 }
 
 mat-form-field {

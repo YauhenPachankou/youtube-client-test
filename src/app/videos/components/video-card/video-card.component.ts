@@ -6,7 +6,7 @@ import {
   Output
 } from '@angular/core';
 
-import { VideoInfo } from '../../models/youtube-response.model';
+import { VideoInfo } from 'src/app/videos/models/youtube-response.model';
 
 @Component({
   selector: 'app-video-card',
@@ -20,10 +20,10 @@ export class VideoCardComponent {
 
   @Input() public video: VideoInfo;
 
-  @Output() public onSwitchVideoStatus: EventEmitter<VideoInfo> = new EventEmitter<VideoInfo>();
+  @Output() public switchVideoStatus: EventEmitter<VideoInfo> = new EventEmitter<VideoInfo>();
 
-  public switchVideoStatus(): void {
-    this.onSwitchVideoStatus.emit(this.video);
+  public switchVideoFavoriteStatus(): void {
+    this.switchVideoStatus.emit(this.video);
   }
 
 }

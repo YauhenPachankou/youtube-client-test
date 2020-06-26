@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import * as VideosActions from './videos/store/videos.actions';
-import { AppState } from './videos/store/videos.selectors';
+import * as VideosActions from 'src/app/videos/store/videos.actions';
+import { AppState } from 'src/app/videos/store/videos.selectors';
 
 @Component({
   selector: 'app-root',

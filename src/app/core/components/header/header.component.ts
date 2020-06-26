@@ -5,8 +5,8 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
-import * as VideosActions from '../../../videos/store/videos.actions';
-import { AppState } from '../../../videos/store/videos.selectors';
+import * as VideosActions from 'src/app/videos/store/videos.actions';
+import { AppState } from 'src/app/videos/store/videos.selectors';
 
 @Component({
   selector: 'app-header',
@@ -29,16 +29,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
       filter: ['']
     });
 
-    this.form.valueChanges
+    this.subscription = this.form.valueChanges
      .pipe(
        debounceTime(500),
        distinctUntilChanged()
      )
      .subscribe(
        ({filter}) => {
-         this.store.dispatch(VideosActions.updateFilteringWord({filteringWord: filter}))
+         this.store.dispatch(VideosActions.updateFilteringWord({filteringWord: filter}));
        }
-     )
+     );
   }
 
   public loadMore(): void {

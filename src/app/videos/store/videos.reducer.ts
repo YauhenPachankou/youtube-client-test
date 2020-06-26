@@ -1,7 +1,7 @@
 import { createReducer, on, Action } from '@ngrx/store';
 
-import * as VideosActions from './videos.actions';
-import { VideoInfo } from '../models/youtube-response.model';
+import * as VideosActions from 'src/app/videos/store/videos.actions';
+import { VideoInfo } from 'src/app/videos/models/youtube-response.model';
 
 export const videosFeatureKey = 'videos';
 
@@ -15,7 +15,7 @@ const initialVideosState: VideosState = {
   videos: [],
   favoriteVideos: JSON.parse(localStorage.getItem('favoriteVideos')) || [],
   filteringWord: '',
-}
+};
 
 const videosReducer = createReducer(
   initialVideosState,
@@ -24,13 +24,16 @@ const videosReducer = createReducer(
     videos: [...state.videos, ...youtubeResponse.items],
   })),
   on(VideosActions.addVideoToFavorites, (state, {video}) => {
-    const favoriteVideos = [...state.favoriteVideos, video];
+    let favoriteVideos = [...state.favoriteVideos];
 
-    localStorage.setItem('favoriteVideos', JSON.stringify(favoriteVideos))
+    if (!state.favoriteVideos.find((item) => item.id === video.id)) {
+      favoriteVideos = [...state.favoriteVideos, video];
+    }
 
     return {
       ...state,
-      favoriteVideos    }
+      favoriteVideos
+    };
   }),
   on(VideosActions.removeVideoFromFavorites, (state, {video}) => ({
       ...state,

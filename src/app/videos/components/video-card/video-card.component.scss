@@ -37,21 +37,14 @@
 .card__statistics-count {
   margin-left: 5px;
 
-  font-family: Roboto, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 10px;
-  line-height: 12px;
-  color: #000000;
+  color: black;
 }
 
 .card__title {
-  font-family: Roboto, sans-serif;
-  font-style: normal;
   font-weight: bold;
   font-size: 20px;
-  line-height: 23px;
-  color: #4F4F4F;
+
+  color: darkslategray;
 }
 
 .card__btn {
@@ -63,12 +56,8 @@
   margin-top: auto;
   border: 0;
 
-  font-family: Roboto, sans-serif;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
-  line-height: 14px;
-  color: #FFFFFF;
+  color: white;
 
   background: cadetblue;
   box-shadow: 2px 0 4px cadetblue;

@@ -33,7 +33,7 @@ interface Snippet {
     maxres: Thumbnails;
     medium: Thumbnails;
     standard: Thumbnails;
-  },
+  };
   title: string;
 }
 
@@ -62,5 +62,5 @@ export interface YoutubeResponse {
   pageInfo: {
     resultsPerPage: number;
     totalResults: number;
-  }
+  };
 }

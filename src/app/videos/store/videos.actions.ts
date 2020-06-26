@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { VideoInfo, YoutubeResponse } from '../models/youtube-response.model';
+import { VideoInfo, YoutubeResponse } from 'src/app/videos/models/youtube-response.model';
 
 export const enum VideosActionsTypes {
   LOAD_VIDEOS = '[Main Page] Load videos',
@@ -15,7 +15,7 @@ export const loadVideos = createAction(VideosActionsTypes.LOAD_VIDEOS);
 export const addVideosToState = createAction(
   VideosActionsTypes.ADD_VIDEOS_TO_STATE,
   props<{youtubeResponse: YoutubeResponse}>()
-)
+);
 
 export const addVideoToFavorites = createAction(
   VideosActionsTypes.ADD_VIDEO_TO_FAVORITES,
@@ -30,4 +30,4 @@ export const removeVideoFromFavorites = createAction(
 export const updateFilteringWord = createAction(
   VideosActionsTypes.UPDATE_FILTERING_WORD,
   props<{filteringWord: string}>()
-)
+);

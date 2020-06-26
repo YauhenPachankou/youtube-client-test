@@ -1,8 +1,8 @@
 <div class="grid">
   <app-video-card
-    *ngFor="let video of favoriteVideos$ | async"
+    *ngFor="let video of favoriteVideos$ | async; trackBy: trackByFn"
     [video]="video"
     [btnText] ="bntText"
-    (onSwitchVideoStatus)="removeVideoFromFavorites(video)"
+    (switchVideoStatus)="onRemoveVideoFromFavorites(video)"
   ></app-video-card>
 </div>

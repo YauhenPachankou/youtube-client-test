@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import * as VideosSelectors from '../../store/videos.selectors';
-import * as VideosActions from '../../store/videos.actions';
-import { VideoInfo } from '../../models/youtube-response.model';
-import { AppState } from '../../store/videos.selectors';
+import * as VideosSelectors from 'src/app/videos/store/videos.selectors';
+import * as VideosActions from 'src/app/videos/store/videos.actions';
+import { VideoInfo } from 'src/app/videos/models/youtube-response.model';
+import { AppState } from 'src/app/videos/store/videos.selectors';
+import { trackByFn } from 'src/app/core/utils/trackBy';
 
 @Component({
   selector: 'app-favorites',
@@ -13,6 +14,8 @@ import { AppState } from '../../store/videos.selectors';
   styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent implements OnInit {
+
+  public trackByFn = trackByFn;
 
   public bntText = 'remove from favorites';
 
@@ -26,7 +29,7 @@ export class FavoritesComponent implements OnInit {
     this.favoriteVideos$ = this.store.pipe(select(VideosSelectors.selectFavoriteVideosByFilteringWord));
   }
 
-  public removeVideoFromFavorites(video): void {
+  public onRemoveVideoFromFavorites(video): void {
     this.store.dispatch(VideosActions.removeVideoFromFavorites({video}));
   }
 

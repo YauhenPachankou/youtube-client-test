@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  youtubeAPIKey: 'AIzaSyAe4tP2M0t0RCR8TKn9APD6r4mirxHLHH0',
+  youtubeApiKey: 'AIzaSyANcGL0iSyPHmVFiniM3a4xJ2ZGtsumnI8',
+  youtubeApiUrl: 'https://www.googleapis.com/youtube/v3/videos'
 };
